@@ -1,4 +1,4 @@
-﻿// Global error handling middleware
+// Global error handling middleware
 const errorHandler = (err, req, res, next) => {
   console.error(`[Error] ${req.method} ${req.originalUrl}:`, err);
 

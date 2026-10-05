@@ -1,4 +1,4 @@
-﻿const { Order } = require("../models");
+const { Order } = require("../models");
 
 // @desc    Create new order (from checkout page)
 // @route   POST /api/orders

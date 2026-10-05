@@ -1,4 +1,4 @@
-﻿const { Product, Order } = require("../models");
+const { Product, Order } = require("../models");
 
 // @desc    Get dashboard metrics & summary
 // @route   GET /api/dashboard/stats

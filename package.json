@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "kidstiches-backend",
   "version": "1.0.0",
   "description": "E-Commerce backend in MVC structure with Sequelize ORM and Neon PostgreSQL",

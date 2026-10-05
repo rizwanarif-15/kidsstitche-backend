@@ -1,4 +1,4 @@
-﻿const { Op } = require("sequelize");
+const { Op } = require("sequelize");
 const { Product } = require("../models");
 
 // Helper to create a URL-safe slug from title

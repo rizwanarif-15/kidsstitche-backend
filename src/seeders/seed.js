@@ -1,4 +1,4 @@
-﻿const { sequelize, Product } = require("../models");
+const { sequelize, Product } = require("../models");
 
 const sampleProducts = [
   {
