@@ -11,18 +11,28 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Enable CORS for frontend clients
-const allowedOrigins = process.env.FRONTEND_URL
+const defaultOrigins = [
+  "https://www.kidsstitch.com",
+  "https://kidsstitch.com",
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:4173",
+];
+
+const envOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(",").map((url) => url.trim())
-  : ["http://localhost:5173", "http://localhost:3000", "http://localhost:4173"];
+  : [];
+
+const allowedOrigins = [...new Set([...defaultOrigins, ...envOrigins])];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, postman) or matching frontend origins
-      if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV === "development") {
+      // Allow requests with no origin or matching allowed origins
+      if (!origin || allowedOrigins.includes(origin) || origin.endsWith("vercel.app") || origin.endsWith("kidsstitch.com")) {
         return callback(null, true);
       }
-      return callback(null, true); // Permissive in dev/testing
+      return callback(null, true);
     },
     credentials: true,
   })
